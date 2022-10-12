@@ -1,0 +1,23 @@
+{% extends "blog-templates/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<article class="media content-section border rounded-3">
+<div class="media-body">
+<div class=""content-section>
+    <form method="POST" name="new_post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">New Post</legend>
+            {{form|crispy}}
+        </fieldset>
+        <div class=""form-group>
+            <button class="btn btn-outline-dark mb-3" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</div>
+    </article>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "blog-templates/base.html" %}
+{% block content %}
+{% load static %}
+
+<article class="media content-section border rounded-3">
+    <div class="media-body">
+        <div class=""content-section>
+            <form method="POST" name="new_post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Delete Post</legend>
+                    <h2>Are your sure want to delete the post ? "{{object.title}}"</h2>
+                </fieldset>
+                <div class=""form-group>
+                    <button class="btn btn-outline-danger mb-3" type="submit">Yes, I'm sure</button>
+                    <a class="btn btn-outline-success mb-3" type="submit" href="{% url "Post Page" object.id%}">No, I'm not sure</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</article>
+
+{% endblock content %}
